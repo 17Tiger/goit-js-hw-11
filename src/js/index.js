@@ -1,9 +1,12 @@
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import ImagesApiService from './images-service';
 
 const imageApiService = new ImagesApiService();
+
 const form = document.querySelector('form#search-form');
 const gallery = document.querySelector('div.gallery');
+
 const loadMoreBtn = document.querySelector('button.load-more');
 
 form.addEventListener('submit', onSubmit);
@@ -11,6 +14,7 @@ loadMoreBtn.addEventListener('click', onLoadMore);
 
 
 function onSubmit(e) {
+
   e.preventDefault();
   loadMoreBtn.classList.add('is-hidden');
   gallery.innerHTML = '';
@@ -54,12 +58,14 @@ function onSubmit(e) {
 function onLoadMore() {
 
   imageApiService.getImage().then(data => {
+
     let queriesArray = data.hits;
     renderImages(queriesArray);
     if (queriesArray.length < 40) {
       loadMoreBtn.classList.add('is-hidden');
       Notify.info("We're sorry, but you've reached the end of search results.");
     }
+
   });
 
 }

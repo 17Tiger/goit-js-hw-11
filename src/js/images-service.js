@@ -17,24 +17,20 @@ export default class ImagesApiService {
 
   
 
-  async getImage() {
-    const response = await axios.get(
-      `${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&${searchParams}&page=${this.page}`
-    );
-    this.page += 1;
-
-    return response.data;
-  }
-
-  resetPage() {
-    this.page = 1;
-  }
-
-  get query() {
-    return this.searchQuery;
-  }
-
-  set query(newQuery) {
-    this.searchQuery = newQuery;
-  }
+async getImage() {
+  const response = await axios.get(
+    `${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&${searchParams}&page=${this.page}`
+  );
+  this.page += 1;
+  return response.data;
+}
+resetPage() {
+  this.page = 1;
+}
+get query() {
+  return this.searchQuery;
+}
+set query(newQuery) {
+  this.searchQuery = newQuery;
+}
 }
