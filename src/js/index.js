@@ -28,7 +28,8 @@ function onSubmit(e) {
           Notify.failure(
             'Sorry, there are no images matching your search query. Please try again.'
           ); 
-          
+
+
         } else if (queriesArray.length < 40) {
           renderImages(queriesArray);
           loadMoreBtn.classList.add('is-hidden');
@@ -40,6 +41,7 @@ function onSubmit(e) {
           loadMoreBtn.classList.remove('is-hidden');
         }
       })
+      
       .catch(error => {
         Notify.info(
           "We're sorry, but you've reached the end of search results."
